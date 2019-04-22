@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { HelloComponent } from './hello.component';
 import { MenuComponent } from '../menu/menu.component';
 import { DishdetailComponent } from '../dishdetail/dishdetail.component';
 import { DishService } from '../services/dish.service';
+import { PromotionService } from '../services/promotion.service';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ContactComponent } from '../contact/contact.component';
@@ -32,6 +34,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
+    MatIconModule,
     FlexLayoutModule,
     AppRoutingModule],
   declarations: [
@@ -47,6 +50,6 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     ],
   bootstrap:    [
     AppComponent ],
-  providers: [ DishService ],
+  providers: [ DishService, PromotionService ],
 })
 export class AppModule { }
