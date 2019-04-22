@@ -15,6 +15,8 @@ import { HelloComponent } from './hello.component';
 import { MenuComponent } from '../menu/menu.component';
 import { DishdetailComponent } from '../dishdetail/dishdetail.component';
 import { DishService } from '../services/dish.service';
+import { LeaderService } from '../services/leader.service';
+
 import { PromotionService } from '../services/promotion.service';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -36,7 +38,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     MatButtonModule,
     MatIconModule,
     FlexLayoutModule,
-    AppRoutingModule],
+    AppRoutingModule
+  ],
   declarations: [
     AppComponent,
     HelloComponent,
@@ -47,9 +50,13 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     ContactComponent,
     AboutComponent,
     HomeComponent
-    ],
+  ],
   bootstrap:    [
     AppComponent ],
-  providers: [ DishService, PromotionService ],
+  providers: [ 
+    DishService,
+    PromotionService,
+    LeaderService
+  ],
 })
 export class AppModule { }
