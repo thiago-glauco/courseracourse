@@ -8,6 +8,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { ContactComponent } from '../contact/contact.component';
 import { AboutComponent } from '../about/about.component';
 import { HomeComponent } from '../home/home.component';
+import { LoginComponent } from '../login/login.component';
 import 'hammerjs';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 
@@ -49,10 +51,14 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     DishdetailComponent,
     ContactComponent,
     AboutComponent,
+    LoginComponent,
     HomeComponent
   ],
   bootstrap:    [
     AppComponent ],
+  entryComponents: [
+    LoginComponent,
+  ],
   providers: [ 
     DishService,
     PromotionService,
