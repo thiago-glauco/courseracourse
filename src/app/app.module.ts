@@ -39,6 +39,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatDialogModule,
     FlexLayoutModule,
     AppRoutingModule
   ],
