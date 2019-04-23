@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef} from '@angular/di
+import { MatDialog, MatDialogRef} from '@angular/
 
 @Component({
   selector: 'app-login',
