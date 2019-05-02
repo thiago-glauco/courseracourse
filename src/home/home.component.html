@@ -12,7 +12,7 @@
       <h3>{{dish.name | uppercase}}</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+  <img mat-card-md-image src={{dish.image}} alt={{dish.name}}>
   <mat-card-content>
     <p>{{dish.description}}
     </p>
@@ -26,7 +26,7 @@
       <h3>{{promotion.name | uppercase}}</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src={{promotion.image}} alt={{promotion.name}}>
+  <img mat-card-md-image src={{promotion.image}} alt={{promotion.name}}>
   <mat-card-content>
     <p>{{promotion.description}}
     </p>
@@ -40,12 +40,15 @@
       <h3>{{leader.name | uppercase}}</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src={{leader.image}} alt={{leader.name}}>
   <mat-card-content>
-    <p matLine>{{leader.designation}}
+    <div fxLayout="row">
+      <img mat-card-md-image src={{leader.image}} alt={{leader.name}}>
+      <p matLine fxFlex>{{leader.designation}}
+      </p>
+    </div>
+      <p matLine>{{leader.description}}
     </p>
-    <p matLine>{{leader.description}}
-    </p>
+   
   </mat-card-content>
 </mat-card>
 

@@ -9,6 +9,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
@@ -40,7 +43,10 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
     FlexLayoutModule,
+    MatCheckboxModule,
     AppRoutingModule
   ],
   declarations: [
