@@ -64,9 +64,10 @@
 
       <mat-form-field fxFlex="40%" class="half-width">
         <input matInput formControlName="email" placeholder="Email" type="email" required>
-        <mat-error *ngIf="feedbackForm.get('email').hasError('email') && feedbackForm.get('email').touched">
+        <mat-error *ngIf="feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched" >
           A valid email is required
         </mat-error>
+        <mat-error *ngIf= "feedbackForm.get('email').hasError('email')">This is not a valid email</mat-error>
       </mat-form-field>
       </div>
       <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="10px" fxLayoutAlign="center center">
