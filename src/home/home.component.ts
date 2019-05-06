@@ -31,15 +31,12 @@ export class HomeComponent implements OnInit {
 
       });
     this.promotionService.getFeaturedPromotion()
-    .then((promotion)=>{
+    .subscribe((promotion)=>{
       this.promotion = promotion;
     });
     this.leaderService.getFeaturedLeader()
-      .then( (leader)=>{
+      .subscribe( (leader)=>{
         this.leader = leader;
-      })
-      .catch( (error) => {
-
       });
   }
 
