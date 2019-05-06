@@ -1,4 +1,4 @@
-export class FeedBack {
+export class Feedback {
   firstname: string;
   lastname: string;
   telnum: string;
