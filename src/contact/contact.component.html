@@ -35,4 +35,37 @@
       </div>
     </div>
   </div>
+  <div fxFlex fxLayout="column">
+    <h3>Send us your feedback</h3>
+    <form novalidate [formGroup]="feedbackForm" fxLayout="column" >
+      <div fxLayout.gt-xs="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+      <mat-form-field fxFlex="40%">
+        <input matInput formControlName="firstname" placeholder="first name" type="text" required>
+      </mat-form-field>
+      <mat-form-field fxFlex="40%"  class="half-width">
+        <input matInput formControlName="lastname" placeholder="last name" type="text" required>
+      </mat-form-field>
+      </div>
+      <div fxLayout.gt-xs="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+      <mat-form-field fxFlex="40%" class="half-width">
+        <input matInput formControlName="telnum" placeholder="tel number" type="tel" required>
+      </mat-form-field>
+      <mat-form-field fxFlex="40%" class="half-width">
+        <input matInput formControlName="email" placeholder="Email" type="email" required>
+      </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+        <mat-slide-toggle fxFlex fxFlex.gt-xs="20%" formControlName="agree">May we contact you?</mat-slide-toggle>
+        <mat-select fxFlex fxFlex.gt-xs="20%" formControlName="contacttype" placeholder="How?">
+          <mat-option *ngFor="let ctype of contactType" [value]="ctype">{{ctype}}</mat-option>
+        </mat-select>
+      </div>
+      <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center left">
+        <mat-form-field fxFlex>
+          <textarea matInput formControlName="message" placeholder="Your Feedback" rows=12></textarea>
+        </mat-form-field>
+        <button fxFlex fxAlign="center" type="submit" mat-raised-button color="primary" >Submit</button>
+      </div>
+    </form>
+  </div>
 </div>
