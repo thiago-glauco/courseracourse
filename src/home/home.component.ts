@@ -5,6 +5,7 @@ import { Promotion } from '../shared/promotion';
 import { PromotionService } from '../services/promotion.service';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
+import { Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -24,12 +25,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.dishService.getFeaturedDish()
-      .then( (dish) => {
+      .subscribe( (dish) => {
          this.dish = dish;
       })
-      .catch( (error) => {
-
-      });
+     
     this.promotionService.getFeaturedPromotion()
     .subscribe((promotion)=>{
       this.promotion = promotion;
