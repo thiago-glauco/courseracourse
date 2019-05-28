@@ -10,13 +10,13 @@ comments-form works!
     <div fxLayout="column">
       <mat-form-field>
         <mat-label>Name</mat-label>
-        <input matInput placeholder="Your Name Here" type="text" formControlName="name">
+        <input matInput placeholder="Your Name Here" type="text" formControlName="author">
         <mat-error *ngIf="formErrors.name">{{formErrors.firstname}}</mat-error>
       </mat-form-field>
       
       <p matLine >Rate us:
       <mat-slider fxFlex.xs="70%" fxFlex.gt-sm="50%" fxFlexAlign="start"
-        thumbLabel tickInterval="1" color="warn" min="1" max="5" step="1" value="5" formControlName="rate"></mat-slider></p>
+        thumbLabel tickInterval="1" color="warn" min="1" max="5" step="1" value="5" formControlName="rating"></mat-slider></p>
         <mat-error *ngIf="formErrors.rate">{{formErrors.firstname}}</mat-error>
 
       <mat-form-field>
@@ -27,7 +27,7 @@ comments-form works!
     </div>
     </mat-card-content>
     <mat-card-actions>
-    <button mat-raised-button [disabled]="!commentsForm.valid">Send</button>
+    <button type="submit" mat-raised-button [disabled]="!commentsForm.valid">Send</button>
   </mat-card-actions>
 </mat-card>
 </form>

@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Comment } from '../shared/comment'
+import { Dish } from '../shared/dish';
 
 @Component({
   selector: 'app-comments-form',
@@ -9,14 +11,18 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 export class CommentsFormComponent implements OnInit {
   
   commentsForm: FormGroup;
+  comment: Comment;
+  @Input() dish: Dish;
+
+  @ViewChild('fform') commentsFormDirective;
 
   validationMessages = {
-    name: {
+    author: {
       required: "First name is required",
       minLength: "First name min length is 2 ccharacters",
       maxLength: "First name max length is 50 characters"
     },
-    rate: {
+    rating: {
       required: "A rate is required",
     },
     comment: {
@@ -27,8 +33,8 @@ export class CommentsFormComponent implements OnInit {
   }
 
   formErrors = {
-    name: '',
-    rate: '',
+    author: '',
+    rating: '',
     comment: '',
   };
 
@@ -38,16 +44,15 @@ export class CommentsFormComponent implements OnInit {
 
   createForm() {
     this.commentsForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      rate: ['', [Validators.required]],
+      author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      rating: ['', [Validators.required]],
       comment: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(500)]]
     });
     this.commentsForm.valueChanges.subscribe( data => { this.onValueChanged(data)});
     this.onValueChanged(); //reset form data
-
   }
 
-  onValueChanged(data) {
+  onValueChanged(data?: any) {
     if (!this.commentsForm) { return; }
     const form = this.commentsForm;
     for (const field in this.formErrors) {
@@ -66,7 +71,21 @@ export class CommentsFormComponent implements OnInit {
       }
     }
   }
+
   ngOnInit() {
+  }
+
+  onSubmit( ) {
+    this.comment = this.commentsForm.value;
+    this.comment.date = new Date().toDateString();
+    this.dish.comments.push(this.comment);
+    console.log(this.comment);
+    this.commentsForm.reset({
+      author: '',
+      comment: '',
+      rating: '',
+    });
+    this.commentsFormDirective.resetForm();
   }
 
 }
