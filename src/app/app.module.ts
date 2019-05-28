@@ -30,6 +30,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ContactComponent } from '../contact/contact.component';
 import { AboutComponent } from '../about/about.component';
+import { CommentsFormComponent } from '../comments-form/comments-form.component';
 import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import 'hammerjs';
@@ -67,6 +68,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     ContactComponent,
     AboutComponent,
     LoginComponent,
+    CommentsFormComponent,
     HomeComponent
   ],
   bootstrap:    [
