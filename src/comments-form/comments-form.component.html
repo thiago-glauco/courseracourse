@@ -16,18 +16,18 @@
         <mat-form-field>
           <mat-label>Name</mat-label>
           <input matInput placeholder="Your Name Here" type="text" formControlName="author">
-          <mat-error *ngIf="formErrors.author">{{formErrors.author}}</mat-error>
+          <mat-error *ngIf="commentsForm.controls.author.errors">Please, tell us your name.</mat-error>
         </mat-form-field>
         
         <p matLine >Rate us:
         <mat-slider fxFlex.xs="70%" fxFlex.gt-sm="50%" fxFlexAlign="start"
           thumbLabel tickInterval="1" color="warn" min="1" max="5" step="1" value="5" formControlName="rating"></mat-slider></p>
-          <mat-error *ngIf="formErrors.rating">{{formErrors.rating}}</mat-error>
+          <mat-error *ngIf="commentsForm.controls.rating.errors">Please, give us a rate.</mat-error>
 
         <mat-form-field>
           <mat-label>Your Comments</mat-label>
           <textarea matInput placeholder="Leave a comment" type="text" formControlName="comment"></textarea>
-          <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>
+          <mat-error *ngIf="commentsForm.controls.comment.errors">A comment with more than 5 characteres is required.</mat-error>
         </mat-form-field>
       </div>
       </mat-card-content>

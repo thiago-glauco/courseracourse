@@ -45,7 +45,7 @@ export class CommentsFormComponent implements OnInit {
   createForm() {
     this.commentsForm = this.fb.group({
       author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      rating: ['', [Validators.required]],
+      rating: [5, [Validators.required]],
       comment: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(500)]]
     });
     this.commentsForm.valueChanges.subscribe( data => { this.onValueChanged(data)});
@@ -84,7 +84,7 @@ export class CommentsFormComponent implements OnInit {
     this.commentsForm.reset({
       author: '',
       comment: '',
-      rating: '',
+      rating: 5,
     });
     this.commentsFormDirective.resetForm();
   }
