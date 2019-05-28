@@ -1,7 +1,7 @@
 <p>
 comments-form works!
 </p>
-<form [formGroup]="commentsForm">
+<form novalidate [formGroup]="commentsForm" (ngSubmit)="onSubmit()">
 <mat-card>
   <mat-card-title>
     Leave your opinion
@@ -11,16 +11,18 @@ comments-form works!
       <mat-form-field>
         <mat-label>Name</mat-label>
         <input matInput placeholder="Your Name Here" type="text" formControlName="name">
+        <mat-error *ngIf="formErrors.name">{{formErrors.firstname}}</mat-error>
       </mat-form-field>
       
       <p matLine >Rate us:
       <mat-slider fxFlex.xs="70%" fxFlex.gt-sm="50%" fxFlexAlign="start"
         thumbLabel tickInterval="1" color="warn" min="1" max="5" step="1" value="5" formControlName="rate"></mat-slider></p>
- 
+        <mat-error *ngIf="formErrors.rate">{{formErrors.firstname}}</mat-error>
 
       <mat-form-field>
         <mat-label>Your Comments</mat-label>
         <textarea matInput placeholder="Leave a comment" type="text" formControlName="comment"></textarea>
+        <mat-error *ngIf="formErrors.comment">{{formErrors.firstname}}</mat-error>
       </mat-form-field>
     </div>
     </mat-card-content>
