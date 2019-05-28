@@ -18,9 +18,9 @@ export class CommentsFormComponent implements OnInit {
 
   validationMessages = {
     author: {
-      required: "First name is required",
-      minLength: "First name min length is 2 ccharacters",
-      maxLength: "First name max length is 50 characters"
+      required: "Name is required",
+      minLength: "Name min length is 2 ccharacters",
+      maxLength: "Name max length is 50 characters"
     },
     rating: {
       required: "A rate is required",
