@@ -53,6 +53,7 @@ export class CommentsFormComponent implements OnInit {
   }
 
   onValueChanged(data?: any) {
+    this.comment = this.commentsForm.value;
     if (!this.commentsForm) { return; }
     const form = this.commentsForm;
     for (const field in this.formErrors) {

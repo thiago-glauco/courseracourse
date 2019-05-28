@@ -1,33 +1,38 @@
-<p>
-comments-form works!
-</p>
 <form novalidate [formGroup]="commentsForm" (ngSubmit)="onSubmit()">
-<mat-card>
-  <mat-card-title>
-    Leave your opinion
-  </mat-card-title>
-  <mat-card-content>
-    <div fxLayout="column">
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Your Name Here" type="text" formControlName="author">
-        <mat-error *ngIf="formErrors.author">{{formErrors.author}}</mat-error>
-      </mat-form-field>
-      
-      <p matLine >Rate us:
-      <mat-slider fxFlex.xs="70%" fxFlex.gt-sm="50%" fxFlexAlign="start"
-        thumbLabel tickInterval="1" color="warn" min="1" max="5" step="1" value="5" formControlName="rating"></mat-slider></p>
-        <mat-error *ngIf="formErrors.rating">{{formErrors.rating}}</mat-error>
+  <mat-list *ngIf="commentsForm.valid">
+    <mat-list-item>
+      <p matLine>This is your comment preview: </p>
+      <p matLine>{{comment.comment}}</p>
+      <p matLine>{{comment.rating}} Stars</p>
+      <p matLine>-- {{comment.author}} {{comment.date | date}}</p>
+    </mat-list-item>
+  </mat-list>
+  <mat-card>
+    <mat-card-title>
+      Leave your opinion
+    </mat-card-title>
+    <mat-card-content>
+      <div fxLayout="column">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Your Name Here" type="text" formControlName="author">
+          <mat-error *ngIf="formErrors.author">{{formErrors.author}}</mat-error>
+        </mat-form-field>
+        
+        <p matLine >Rate us:
+        <mat-slider fxFlex.xs="70%" fxFlex.gt-sm="50%" fxFlexAlign="start"
+          thumbLabel tickInterval="1" color="warn" min="1" max="5" step="1" value="5" formControlName="rating"></mat-slider></p>
+          <mat-error *ngIf="formErrors.rating">{{formErrors.rating}}</mat-error>
 
-      <mat-form-field>
-        <mat-label>Your Comments</mat-label>
-        <textarea matInput placeholder="Leave a comment" type="text" formControlName="comment"></textarea>
-        <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>
-      </mat-form-field>
-    </div>
-    </mat-card-content>
-    <mat-card-actions>
-    <button type="submit" mat-raised-button [disabled]="!commentsForm.valid">Send</button>
-  </mat-card-actions>
-</mat-card>
+        <mat-form-field>
+          <mat-label>Your Comments</mat-label>
+          <textarea matInput placeholder="Leave a comment" type="text" formControlName="comment"></textarea>
+          <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>
+        </mat-form-field>
+      </div>
+      </mat-card-content>
+      <mat-card-actions>
+      <button type="submit" mat-raised-button [disabled]="!commentsForm.valid">Send</button>
+    </mat-card-actions>
+  </mat-card>
 </form>
