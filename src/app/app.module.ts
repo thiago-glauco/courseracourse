@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import {MatSliderModule} from '@angular/material/slider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -56,6 +57,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     FlexLayoutModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
+    MatSliderModule,
     AppRoutingModule
   ],
   declarations: [
