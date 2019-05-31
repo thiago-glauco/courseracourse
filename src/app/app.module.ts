@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -35,7 +36,7 @@ import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import 'hammerjs';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
-import { baseImageURL } from '../shared/baseurl';
+import { baseImageURL, databaseURL } from '../shared/baseurl';
 
 @NgModule({
   imports:      [ 
@@ -43,6 +44,7 @@ import { baseImageURL } from '../shared/baseurl';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatListModule,
     MatGridListModule,
@@ -82,7 +84,8 @@ import { baseImageURL } from '../shared/baseurl';
     DishService,
     PromotionService,
     LeaderService,
-    {provide: "BaseURL", useValue: baseIURL}
+    {provide: "BaseImageURL", useValue: baseImageURL},
+    {provide: "DatabaseURL", useValue: databaseURL}
   ],
 })
 export class AppModule { }

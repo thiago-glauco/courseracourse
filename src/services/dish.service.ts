@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { databaseURL, baseImageURL} from '../shared/baseurl';
 import { Dish } from '../shared/dish';
 import { DISHES } from '../shared/dishes';
 import { Observable, of } from 'rxjs';
@@ -7,10 +9,10 @@ import { delay } from 'rxjs/operators';
 @Injectable()
 export class DishService {
 
-  constructor() { }
+  constructor(private http: HttpClient ) { }
 
   getDishes(): Observable<Dish[]> {
-    return of(DISHES).pipe( delay(2000));
+    return this.http.get<Dish[]>(databaseURL + 'dishes.json');
   }
 
   getDish(id: string): Observable<Dish> {
