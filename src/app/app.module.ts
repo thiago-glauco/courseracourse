@@ -35,6 +35,7 @@ import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import 'hammerjs';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
+import { baseImageURL } from '../shared/baseurl';
 
 @NgModule({
   imports:      [ 
@@ -80,7 +81,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
   providers: [ 
     DishService,
     PromotionService,
-    LeaderService
+    LeaderService,
+    {provide: "BaseURL", useValue: baseIURL}
   ],
 })
 export class AppModule { }
