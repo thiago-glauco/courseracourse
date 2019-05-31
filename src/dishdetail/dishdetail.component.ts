@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
 import {Location } from '@angular/common';
 import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
 import { switchMap } from 'rxjs/operators';
 import { Observable, of} from 'rxjs';
+
 
 
 @Component({
@@ -21,7 +22,8 @@ export class DishdetailComponent implements OnInit {
   constructor(
       private dishService: DishService,
       private location: Location,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      @Inject('BaseImageURL') private baseImageURL
     ) { }
 
   ngOnInit() {
