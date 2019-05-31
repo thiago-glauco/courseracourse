@@ -4,7 +4,7 @@ import { databaseURL, baseImageURL} from '../shared/baseurl';
 import { Dish } from '../shared/dish';
 import { DISHES } from '../shared/dishes';
 import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 
 @Injectable()
 export class DishService {
@@ -20,8 +20,9 @@ export class DishService {
   }
 
   getFeaturedDish(): Observable<Dish> {
-    return of(DISHES.filter((dish) => dish.featured)[0])
-      .pipe( delay(1000));
+   return this.http.get<Dish[]>(databaseURL + 'dishes.json?orderBy="featured"&equalTo=true').pipe(
+      map ( dishes => dishes[0])
+    )
   }
 
   getDishIds(): Observable<string[] | any> {
