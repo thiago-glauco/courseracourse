@@ -8,6 +8,7 @@ import { LeaderService } from '../services/leader.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  errMsg: string
   leaderList: Leader[];
   featuredLeader: Leader;
 
@@ -18,7 +19,9 @@ export class AboutComponent implements OnInit {
     this.leaderService.getLeaders( )
       .subscribe((leaders)=>{
         this.leaderList = leaders;
-      });
+      },
+      errmess => this.errMsg = <any>errmess
+    );
   }
 
 }
