@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { databaseURL, baseImageURL} from '../shared/baseurl';
 import { HttpClient } from '@angular/common/http';
 import { Leader } from '../shared/leader';
-import { LEADERS } from '../shared/leaders';
+//import { LEADERS } from '../shared/leaders';
 import { Observable, of } from 'rxjs';
 import { map, delay } from 'rxjs/operators';
 

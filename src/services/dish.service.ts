@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { databaseURL, baseImageURL} from '../shared/baseurl';
 import { Dish } from '../shared/dish';
-import { DISHES } from '../shared/dishes';
+//import { DISHES } from '../shared/dishes';
 import { Observable, of } from 'rxjs';
 import { map, delay } from 'rxjs/operators';
 
@@ -26,7 +26,7 @@ export class DishService {
   }
 
   getDishIds(): Observable<string[] | any> {
-    return of( DISHES.map( (dish) => (dish.id)));
+    return this.getDishes().pipe(map(dishes => dishes.map(dish => dish.id)));
   }
   
 
