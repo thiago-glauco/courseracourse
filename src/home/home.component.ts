@@ -33,7 +33,9 @@ export class HomeComponent implements OnInit {
      
     this.promotionService.getFeaturedPromotion()
     .subscribe((promotion)=>{
-      this.promotion = promotion;
+      console.dir(promotion);
+      console.dir(promotion[Object.getOwnPropertyNames(promotion)[0]]);
+       this.promotion = promotion[Object.getOwnPropertyNames(promotion)[0]];
     });
 
     this.leaderService.getFeaturedLeader()

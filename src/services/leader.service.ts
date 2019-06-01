@@ -22,7 +22,7 @@ export class LeaderService {
           return leader[0]
           }))
   }
-  getFeaturedLeader(){
+  getFeaturedLeader(): Observable<any>{
     return this.http.get<Leader[]>(databaseURL + 'leadership.json?orderBy="featured"&equalTo=true');
      
     /*return of(LEADERS.filter((leader) => leader.featured)[0])

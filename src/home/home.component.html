@@ -31,8 +31,9 @@
       <h3>{{promotion.name | uppercase}}</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-md-image src={{promotion.image}} alt={{promotion.name}}>
+  <img mat-card-md-image src="{{baseImageURL + promotion.image}}" alt={{promotion.name}}>
   <mat-card-content>
+
     <p>{{promotion.description}}
     </p>
   </mat-card-content>
