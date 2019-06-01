@@ -8,7 +8,7 @@ import { DishService } from '../services/dish.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  
+  errMsg: string;
   dishes: Dish[];
   selectedDish: Dish;
 
@@ -25,7 +25,8 @@ export class MenuComponent implements OnInit {
       .subscribe( (dishes)=>{
         this.dishes = dishes;
         console.dir(this.dishes);
-      });
+      },
+      errmess => this.errMsg = <any>errmess);
   }
 
 

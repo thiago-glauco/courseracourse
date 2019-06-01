@@ -18,6 +18,7 @@ export class DishdetailComponent implements OnInit {
   dishIds: string[];
   prev: string;
   next: string;
+  errMsg: string
 
   constructor(
       private dishService: DishService,
@@ -30,7 +31,7 @@ export class DishdetailComponent implements OnInit {
     console.dir(this.route.params);
     this.dishService.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     let id = this.route.params.pipe( switchMap( (params: Params)  =>  this.dishService.getDish(params['id'])))
-      .subscribe( (dish) => {this.dish = dish; this.setPrevNext(dish.id);} );
+      .subscribe( (dish) => {this.dish = dish; this.setPrevNext(dish.id);}, errmess => this.errMsg = <any>errmess );
 
   }
   goBack(): void {
