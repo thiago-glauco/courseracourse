@@ -6,6 +6,7 @@ import { PromotionService } from '../services/promotion.service';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
 import { Observable, of} from 'rxjs';
+import {map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -34,9 +35,11 @@ export class HomeComponent implements OnInit {
     .subscribe((promotion)=>{
       this.promotion = promotion;
     });
+
     this.leaderService.getFeaturedLeader()
       .subscribe( (leader)=>{
-        this.leader = leader;
+        console.dir( Object.getOwnPropertyNames(leader) );
+        this.leader = leader[Object.getOwnPropertyNames(leader)[0]];
       });
   }
 
