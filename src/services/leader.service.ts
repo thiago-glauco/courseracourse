@@ -17,9 +17,10 @@ export class LeaderService {
       .pipe( delay(2000));*/
   }
   getLeader(id: string): Observable<Leader> {
-    return this.http.get<Leader>(databaseURL + 'leadership/' + id + '.json');
-    /*return of(LEADERS.filter( (leader) => leader.id === id )[0])
-    .pipe(delay(2000));*/
+    return this.http.get<Leader>(databaseURL + 'leadership/' + id + '.json')
+      .pipe( map (leader => {
+          return leader[0]
+          }))
   }
   getFeaturedLeader(){
     return this.http.get<Leader[]>(databaseURL + 'leadership.json?orderBy="featured"&equalTo=true');
