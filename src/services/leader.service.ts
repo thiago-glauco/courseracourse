@@ -16,7 +16,8 @@ export class LeaderService {
   getLeaders(): Observable<Leader[]> {
     return this.http.get<Leader[]>(databaseURL + 'leadership.json').pipe(
         catchError( 
-          this.processHttpMessages.handleError)
+          this.processHttpMessages.handleError
+        )
       );
     /*return of(LEADERS)
       .pipe( delay(2000));*/
