@@ -99,6 +99,7 @@ onValueChanged(data?: any) {
   onSubmit( ) {
     this.feedback = this.feedbackForm.value;
     console.log(this.feedback);
+    this.feedbackService.postFeedback(this.feedback)
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',

@@ -13,7 +13,7 @@ export class FeedbackService {
   constructor(private http: HttpClient,
   private processHttpMessages: ProcessHttpMessagesService) { }
 
-    putFeedback( feedback: Feedback) {
+    postFeedback( feedback: Feedback) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
@@ -22,7 +22,7 @@ export class FeedbackService {
 
     console.dir(feedback);
 
-    return this.http.post(databaseURL + 'dishes.json', feedback, httpOptions)
+    return this.http.post(databaseURL + 'feedback.json', feedback, httpOptions)
     .subscribe(
       result => {console.dir(result)},
       error => {console.dir(error)}
