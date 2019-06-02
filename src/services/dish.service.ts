@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProcessHttpMessagesService } from './process-http-messages.service';
 import { databaseURL, baseImageURL} from '../shared/baseurl';
 import { Dish } from '../shared/dish';
@@ -37,6 +37,19 @@ export class DishService {
 
   getDishIds(): Observable<string[] | any> {
     return this.getDishes().pipe(map(dishes => dishes.map(dish => dish.id)))
+    .pipe(
+      catchError(error => error)
+    );
+  }
+
+  putDish( dish: Dish): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    return this.http.put(databaseURL + 'dishes.json/' + dish.id, dish, httpOptions)
     .pipe(
       catchError(error => error)
     );
