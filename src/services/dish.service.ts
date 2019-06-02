@@ -42,17 +42,19 @@ export class DishService {
     );
   }
 
-  putDish( dish: Dish): Observable<any> {
+  putDish( dish: Dish) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
 
-    return this.http.put(databaseURL + 'dishes.json/' + dish.id, dish, httpOptions)
-    .pipe(
-      catchError(error => error)
-    );
+    console.dir(dish);
+
+    return this.http.put(databaseURL + 'dishes/' + dish.id + '.json', dish, httpOptions)
+      .pipe(
+        catchError(this.processHttpMessages.handleError)
+      );
   }
   
 

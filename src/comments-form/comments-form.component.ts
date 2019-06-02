@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Comment } from '../shared/comment'
 import { Dish } from '../shared/dish';
+import { DishService } from '../services/dish.service';
 
 @Component({
   selector: 'app-comments-form',
@@ -38,7 +39,8 @@ export class CommentsFormComponent implements OnInit {
     comment: '',
   };
 
-  constructor( private fb: FormBuilder ) { 
+  constructor( private fb: FormBuilder,
+    private dishService: DishService) { 
     this.createForm();
   }
 
@@ -80,6 +82,7 @@ export class CommentsFormComponent implements OnInit {
     this.comment = this.commentsForm.value;
     this.comment.date = new Date().toDateString();
     this.dish.comments.push(this.comment);
+    this.dishService.putDish( this.dish );
     console.log(this.comment);
     this.commentsForm.reset({
       author: '',

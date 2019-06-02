@@ -16,6 +16,7 @@ import { Observable, of} from 'rxjs';
 export class DishdetailComponent implements OnInit {
   dish: Dish;
   dishIds: string[];
+  dishcopy: Dish;
   prev: string;
   next: string;
   errMsg: string
@@ -31,7 +32,14 @@ export class DishdetailComponent implements OnInit {
     console.dir(this.route.params);
     this.dishService.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     let id = this.route.params.pipe( switchMap( (params: Params)  =>  this.dishService.getDish(params['id'])))
-      .subscribe( (dish) => {this.dish = dish; this.setPrevNext(dish.id);}, errmess => this.errMsg = <any>errmess );
+      .subscribe( 
+        (dish) => {
+          this.dish = dish;
+          this.dishcopy = dish;
+          this.setPrevNext(dish.id);
+        },
+        errmess => this.errMsg = <any>errmess
+      );
 
   }
   goBack(): void {
