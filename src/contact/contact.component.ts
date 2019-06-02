@@ -3,6 +3,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
+import { FeedbackService } from '../services/feedback.service';
 
 @Component({
   selector: 'app-contact',
@@ -49,6 +50,7 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private feedbackService: FeedbackService
   ) {
     this.createForm();
   }

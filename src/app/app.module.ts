@@ -25,6 +25,7 @@ import { MenuComponent } from '../menu/menu.component';
 import { DishdetailComponent } from '../dishdetail/dishdetail.component';
 import { DishService } from '../services/dish.service';
 import { LeaderService } from '../services/leader.service';
+import { FeedbackService } from '../services/feedback.service';
 import { ProcessHttpMessagesService } from '../services/process-http-messages.service';
 
 
@@ -86,6 +87,7 @@ import { baseImageURL, databaseURL } from '../shared/baseurl';
     DishService,
     PromotionService,
     LeaderService,
+    FeedbackService,
     ProcessHttpMessagesService,
     {provide: "BaseImageURL", useValue: baseImageURL},
     {provide: "DatabaseURL", useValue: databaseURL}

@@ -52,9 +52,13 @@ export class DishService {
     console.dir(dish);
 
     return this.http.put(databaseURL + 'dishes/' + dish.id + '.json', dish, httpOptions)
-      .pipe(
-        catchError(this.processHttpMessages.handleError)
-      );
+    .subscribe(
+      result => {console.dir(result)},
+      error => {console.dir(error)}
+    )
+    /*.pipe(
+       catchError(this.processHttpMessages.handleError)
+    );*/
   }
   
 
