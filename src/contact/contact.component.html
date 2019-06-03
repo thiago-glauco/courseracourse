@@ -77,4 +77,20 @@
       </div>
     </form>
   </div>
+  <div fxFlex fxLayout="column" *ngIf="this.animationControls.showFeedback">
+    <mat-card>
+      <mat-card-title>
+        Your Feedback:
+      </mat-card-title>
+      <mat-card-content>
+        <p matLine><em>Firstname</em>: {{this.feedback.firstname}} </p>
+        <p matLine><em>Lastname</em>: {{this.feedback.lastname}} </p>
+        <p matLine><em>Tel.</em>: {{this.feedback.telnum}} </p>
+        <p matLine><em>Email.</em>: {{this.feedback.email}} </p>
+        <p matLine><em>Agreed Contact</em>: {{this.feedback.agree}} </p>
+        <p matLine><em>Contact Type</em>: {{this.feedback.contactype}} </p>
+         <p matLine><em>Your Message</em>: {{this.feedback.message}} </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

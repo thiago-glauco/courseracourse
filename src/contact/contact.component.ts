@@ -17,7 +17,8 @@ export class ContactComponent implements OnInit {
   contactType = ContactType;
   const animationControls = {
     formSend: false,
-    serverReturned: false
+    serverReturned: false,
+    showFeedback: false
   }
   @ViewChild('fform') feedbackFormDirective;
 
@@ -105,10 +106,16 @@ onValueChanged(data?: any) {
     this.animationControls.formSend = true;
     console.log(this.feedback);
     let status = this.feedbackService.postFeedback(this.feedback);
+    var self = this
     status.subscribe(
       result => {
         console.dir(result);
-        this.animationControls.serverReturned = true;
+        if(result.name){
+          //Data is saved in firebase!
+          this.animationControls.serverReturned = true;
+          this.animationControls.showFeedback = true;
+          setTimeout(function(){self.hideFeedback()}, 10000)
+        }
       },
       error => {console.dir(error)}
     )
@@ -122,6 +129,10 @@ onValueChanged(data?: any) {
       message: '',
     });
     this.feedbackFormDirective.resetForm();
+  }
+
+  hideFeedback(){
+    this.animationControls.showFeedback = false;
   }
 
 }
