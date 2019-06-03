@@ -28,6 +28,8 @@ import { LeaderService } from '../services/leader.service';
 import { FeedbackService } from '../services/feedback.service';
 import { ProcessHttpMessagesService } from '../services/process-http-messages.service';
 
+import { HighlightDirective } from '../directives/highlight.directive'
+
 
 import { PromotionService } from '../services/promotion.service';
 import { HeaderComponent } from '../header/header.component';
@@ -63,6 +65,7 @@ import { baseImageURL, databaseURL } from '../shared/baseurl';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatSliderModule,
+    HighlightDirective,
     AppRoutingModule
   ],
   declarations: [
