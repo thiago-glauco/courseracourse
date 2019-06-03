@@ -22,11 +22,8 @@ export class FeedbackService {
 
     console.dir(feedback);
 
-    return this.http.post(databaseURL + 'feedback.json', feedback, httpOptions)
-    .subscribe(
-      result => {console.dir(result)},
-      error => {console.dir(error)}
-    )
+    return this.http.post(databaseURL + 'feedback.json', feedback, httpOptions);
+
     /*.pipe(
        catchError(this.processHttpMessages.handleError)
     );*/

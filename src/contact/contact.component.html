@@ -37,6 +37,7 @@
   </div>
   <div fxFlex fxLayout="column">
     <h3>Send us your feedback</h3>
+    <mat-spinner *ngIf="animationControls.formSend && !animationControls.serverReturned"></mat-spinner>
     <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
     <form novalidate [formGroup]="feedbackForm" fxLayout="column" (ngSubmit)="onSubmit()">
       <div fxLayout.gt-xs="row" fxLayoutGap="10px" fxLayoutAlign="center center">

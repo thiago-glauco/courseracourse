@@ -15,6 +15,10 @@ export class ContactComponent implements OnInit {
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
+  const animationControls = {
+    formSend: false,
+    serverReturned: false
+  }
   @ViewChild('fform') feedbackFormDirective;
 
   formErrors = {
@@ -98,8 +102,16 @@ onValueChanged(data?: any) {
 
   onSubmit( ) {
     this.feedback = this.feedbackForm.value;
+    this.animationControls.formSend = true;
     console.log(this.feedback);
-    this.feedbackService.postFeedback(this.feedback)
+    let status = this.feedbackService.postFeedback(this.feedback);
+    status.subscribe(
+      result => {
+        console.dir(result);
+        this.animationControls.serverReturned = true;
+      },
+      error => {console.dir(error)}
+    )
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
@@ -107,7 +119,7 @@ onValueChanged(data?: any) {
       email: '',
       agree: false,
       contacttype: 'None',
-      message: ''
+      message: '',
     });
     this.feedbackFormDirective.resetForm();
   }
