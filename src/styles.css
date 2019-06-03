@@ -17,8 +17,8 @@ body{
 }
 
 .highlight {
-    background-color: grey;
+    background-color: lightgrey;
     border: 1px solid black;
-    z-index: 1;
+    z-index: 2;
     transform: scale(1.01);
 }

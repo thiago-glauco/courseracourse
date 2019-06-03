@@ -65,11 +65,11 @@ import { baseImageURL, databaseURL } from '../shared/baseurl';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatSliderModule,
-    HighlightDirective,
     AppRoutingModule
   ],
   declarations: [
     AppComponent,
+    HighlightDirective,
     HelloComponent,
     MenuComponent,
     HeaderComponent,
