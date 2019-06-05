@@ -1,21 +1,32 @@
-
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
 import { FeedbackService } from '../services/feedback.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
+    animations: [
+    trigger('insertRemove', [
+        state('*', style({ opacity: 1, transform: 'translateY(0)'})),
+        transition(':enter', [
+            style({ transform: 'translateY(-100%)', opacity: 0 }),
+            animate('1s ease-in', style({ transform: 'translateY(5%)', opacity: 1}))
+        ]),
+        transition(':leave', [
+            animate('500ms ease-out', style({ transform: 'translateY(5%)', opacity: 0}))
+        ])
+  ]),
+  ]
 })
 export class ContactComponent implements OnInit {
 
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
-  const animationControls = {
+  animationControls = {
     formSend: false,
     serverReturned: false,
     showFeedback: false
@@ -114,7 +125,7 @@ onValueChanged(data?: any) {
           //Data is saved in firebase!
           this.animationControls.serverReturned = true;
           this.animationControls.showFeedback = true;
-          setTimeout(function(){self.hideFeedback()}, 10000)
+          setTimeout(function(){self.hideFeedback()}, 5000)
         }
       },
       error => {console.dir(error)}
@@ -133,6 +144,7 @@ onValueChanged(data?: any) {
 
   hideFeedback(){
     this.animationControls.showFeedback = false;
+    this.animationControls.formSend = false;
   }
 
 }

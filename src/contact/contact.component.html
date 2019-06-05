@@ -35,11 +35,11 @@
       </div>
     </div>
   </div>
-  <div fxFlex fxLayout="column">
+  <div fxFlex fxLayout="column" >
     <h3>Send us your feedback</h3>
     <mat-spinner *ngIf="animationControls.formSend && !animationControls.serverReturned"></mat-spinner>
-    <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
-    <form novalidate [formGroup]="feedbackForm" fxLayout="column" (ngSubmit)="onSubmit()">
+    <!--<p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>-->
+    <form novalidate [formGroup]="feedbackForm" fxLayout="column" (ngSubmit)="onSubmit()"  @insertRemove *ngIf="!this.animationControls.showFeedback && !this.animationControls.formSend">
       <div fxLayout.gt-xs="row" fxLayoutGap="10px" fxLayoutAlign="center center">
       <mat-form-field fxFlex="40%">
         <input matInput formControlName="firstname" placeholder="first name" type="text" required>
@@ -77,7 +77,7 @@
       </div>
     </form>
   </div>
-  <div fxFlex fxLayout="column" *ngIf="this.animationControls.showFeedback">
+  <div fxFlex fxLayout="column" @insertRemove *ngIf="this.animationControls.showFeedback && animationControls.serverReturned">
     <mat-card>
       <mat-card-title>
         Your Feedback:
